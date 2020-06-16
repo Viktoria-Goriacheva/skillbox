@@ -22,14 +22,17 @@ public class Loader
 
         Cat marusia = new Cat();
         System.out.println("Вес Маруси: " + marusia.getWeight());
-        marusia.feed(11.57);
+        marusia.feed(150.00);
         System.out.print("кормим," + " ");
         System.out.println("новый вес Маруси: " + marusia.getWeight());
+        marusia.getWeightFood();
+        marusia.pee();
+        marusia.pee();
+        marusia.pee();
+        System.out.println("Вес Маруси: " + marusia.getWeight());
+        System.out.println("вес съеденного кошкой:" + marusia.getWeightFood());
+        System.out.println("Вес Маруси: " + marusia.getWeight());
 
-        Cat dusia = new Cat();
-        System.out.println("Вес Дуси: " + dusia.getWeight());
-        dusia.feed(201.15);
-        System.out.print("кормим," + " ");
-        System.out.println("новый вес Дуси: " + dusia.getWeight());
+
     }
 }
