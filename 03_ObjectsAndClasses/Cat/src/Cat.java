@@ -19,7 +19,7 @@ public class Cat
     public void meow()
     {
         weight = weight - 1;
-        System.out.println("Meow");
+        System.out.print("Meow");
     }
 
     public void feed(Double amount)
