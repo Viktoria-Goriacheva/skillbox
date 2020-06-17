@@ -33,6 +33,10 @@ public class Loader
         System.out.println("вес съеденного кошкой:" + marusia.getWeightFood());
         System.out.println("Вес Маруси: " + marusia.getWeight());
 
+        Cat pit = new Cat();
+
+        System.out.println("Количество кошек: " + Cat.getCount());
+
 
     }
 }

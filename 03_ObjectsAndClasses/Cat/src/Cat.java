@@ -6,6 +6,7 @@ public class Cat
     private double WeightFood;
     private double minWeight;
     private double maxWeight;
+    public static int count = 0;
 
     public Cat()
     {
@@ -13,7 +14,11 @@ public class Cat
         originWeight = weight;
         minWeight = 1000.0;
         maxWeight = 9000.0;
+        count++;
 
+    }
+    public static int getCount(){
+        return count;
     }
 
     public void meow()
@@ -48,9 +53,11 @@ public double getWeightFood(){
     public String getStatus()
     {
         if(weight < minWeight) {
+            count--;
             return "Dead";
         }
         else if(weight > maxWeight) {
+            count--;
             return "Exploded";
         }
         else if(weight > originWeight) {
