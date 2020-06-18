@@ -4,8 +4,9 @@ public class Cat
     private double originWeight;
     private double weight;
     private double WeightFood;
-    private double minWeight;
-    private double maxWeight;
+    public static final int EYES = 2;
+    public static final double MIN_WEIGHT = 1000;
+    public static final double MAX_WEIGHT = 9000;
     public static int count = 0;
     private boolean live = true;
 
@@ -13,10 +14,7 @@ public class Cat
     {
         weight = 1500.0 + 3000.0 * Math.random();
         originWeight = weight;
-        minWeight = 1000.0;
-        maxWeight = 9000.0;
         count++;
-
     }
     public static int getCount(){
         return count;
@@ -34,14 +32,14 @@ public class Cat
     {
         weight = weight - 1;
         System.out.print("Meow");
-        if (weight > maxWeight || weight > maxWeight) {live = false;}
+        if (weight < MIN_WEIGHT || weight > MAX_WEIGHT) {live = false;}
 
     }
 
     public void pee()
     {weight = weight - 1;
         System.out.println("Mrrrrrh");
-        if (weight > maxWeight || weight > maxWeight) {live = false;}}
+        if (weight < MIN_WEIGHT || weight > MAX_WEIGHT) {live = false;}}
 
 public double getWeightFood(){
     return WeightFood;
@@ -50,13 +48,13 @@ public double getWeightFood(){
     {
         weight = weight + amount;
         WeightFood = amount;
-        if (weight > maxWeight || weight > maxWeight) {live = false;}
+        if (weight < MIN_WEIGHT || weight > MAX_WEIGHT) {live = false;}
     }
 
     public void drink(Double amount)
     {
         weight = weight + amount;
-        if (weight > maxWeight || weight > maxWeight) {live = false;}
+        if (weight < MIN_WEIGHT || weight > MAX_WEIGHT) {live = false;}
     }
 
     public Double getWeight()
@@ -66,11 +64,11 @@ public double getWeightFood(){
 
     public String getStatus()
     {
-        if(weight < minWeight) {
+        if(weight < MIN_WEIGHT) {
             count--;
             return "Dead";
         }
-        else if(weight > maxWeight) {
+        else if(weight > MAX_WEIGHT) {
             count--;
             return "Exploded";
         }

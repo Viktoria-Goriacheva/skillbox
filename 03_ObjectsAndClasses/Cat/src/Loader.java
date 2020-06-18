@@ -1,3 +1,5 @@
+import java.awt.*;
+import java.awt.color.ColorSpace;
 import java.sql.SQLOutput;
 
 public class Loader
@@ -36,7 +38,6 @@ public class Loader
         Cat pit = new Cat();
         System.out.println(timon.isAlive());
         System.out.println(marusia.isAlive());
-
         System.out.println("Количество кошек: " + Cat.getCount());
 
 
