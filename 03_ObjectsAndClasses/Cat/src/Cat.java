@@ -7,6 +7,7 @@ public class Cat
     private double minWeight;
     private double maxWeight;
     public static int count = 0;
+    private boolean live = true;
 
     public Cat()
     {
@@ -20,16 +21,27 @@ public class Cat
     public static int getCount(){
         return count;
     }
+    public String isAlive() {
+
+        if (live) {
+            return "кошка жива";
+        } else {
+            return "кошка мертва";
+        }
+    }
 
     public void meow()
     {
         weight = weight - 1;
         System.out.print("Meow");
+        if (weight > maxWeight || weight > maxWeight) {live = false;}
+
     }
 
     public void pee()
     {weight = weight - 1;
-        System.out.println("Mrrrrrh");}
+        System.out.println("Mrrrrrh");
+        if (weight > maxWeight || weight > maxWeight) {live = false;}}
 
 public double getWeightFood(){
     return WeightFood;
@@ -38,11 +50,13 @@ public double getWeightFood(){
     {
         weight = weight + amount;
         WeightFood = amount;
+        if (weight > maxWeight || weight > maxWeight) {live = false;}
     }
 
     public void drink(Double amount)
     {
         weight = weight + amount;
+        if (weight > maxWeight || weight > maxWeight) {live = false;}
     }
 
     public Double getWeight()
