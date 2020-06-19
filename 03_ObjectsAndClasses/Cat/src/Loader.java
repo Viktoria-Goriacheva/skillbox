@@ -28,6 +28,8 @@ public class Loader{
         System.out.println("новый вес Тимона: " + timon.getWeight());
         System.out.println(timon.getStatus());
 
+      Cat tod = new Cat(basia);
+
         Cat marusia = new Cat();
         System.out.println("Вес Маруси: " + marusia.getWeight());
         marusia.feed(150.00);

@@ -3,7 +3,7 @@ public class Cat
 {
     private double originWeight;
     private double weight;
-    private double WeightFood;
+    private double weightFood;
     public static final int EYES = 2;
     public static final double MIN_WEIGHT = 1000;
     public static final double MAX_WEIGHT = 9000;
@@ -22,6 +22,16 @@ public class Cat
         this();
         this.weight = weight;
     }
+    public Cat (Cat other){
+        this.originWeight = other.originWeight;
+        this.weight = other.weight;
+        this.weightFood = other.weightFood;
+        this.ColorCat = other.ColorCat;
+        this.live = other.live;
+
+    }
+    public Cat copy(){return new Cat(this);}
+
     public void setColor(String ColorCat){
         this.ColorCat = ColorCat;
     }
@@ -54,12 +64,12 @@ public class Cat
         if (weight < MIN_WEIGHT || weight > MAX_WEIGHT) {live = false;}}
 
 public double getWeightFood(){
-    return WeightFood;
+    return weightFood;
 }
     public void feed(Double amount)
     {
         weight = weight + amount;
-        WeightFood = amount;
+        weightFood = amount;
         if (weight < MIN_WEIGHT || weight > MAX_WEIGHT) {live = false;}
     }
 
