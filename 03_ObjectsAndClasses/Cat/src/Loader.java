@@ -2,16 +2,22 @@ import java.awt.*;
 import java.awt.color.ColorSpace;
 import java.sql.SQLOutput;
 
-public class Loader
-{
+public class Loader{
+
+    public static Cat getKitten(){
+        return new Cat(1100);
+}
     public static void main(String[] args)
-    {
+    {   Cat kitten1 = getKitten();
+        Cat kitten2 = getKitten();
+        Cat kitten3 = getKitten();
+        System.out.println(kitten1.getWeight());
+
         Cat basia = new Cat();
         System.out.println("Вес Баси: " + basia.getWeight());
         while (basia.getWeight() > 1000) {
             basia.meow(); }
         System.out.println(basia.getStatus());
-
         Cat robert = new Cat();
         System.out.println("Вес Роберта: " + robert.getWeight());
 

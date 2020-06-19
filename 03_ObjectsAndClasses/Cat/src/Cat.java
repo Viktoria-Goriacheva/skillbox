@@ -16,6 +16,12 @@ public class Cat
         originWeight = weight;
         count++;
     }
+
+    public Cat(double weight){
+        this();
+        this.weight = weight;
+    }
+
     public static int getCount(){
         return count;
     }
