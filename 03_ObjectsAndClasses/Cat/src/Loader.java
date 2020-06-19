@@ -46,6 +46,9 @@ public class Loader{
         System.out.println(marusia.isAlive());
         System.out.println("Количество кошек: " + Cat.getCount());
 
+        marusia.setColor("палевый");
+        marusia.getColor();
+
 
     }
 }

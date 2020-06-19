@@ -9,6 +9,7 @@ public class Cat
     public static final double MAX_WEIGHT = 9000;
     public static int count = 0;
     private boolean live = true;
+    private String ColorCat;
 
     public Cat()
     {
@@ -21,7 +22,12 @@ public class Cat
         this();
         this.weight = weight;
     }
-
+    public void setColor(String ColorCat){
+        this.ColorCat = ColorCat;
+    }
+    public void getColor(){
+    System.out.println("цвет кошки: " + ColorCat);
+}
     public static int getCount(){
         return count;
     }
