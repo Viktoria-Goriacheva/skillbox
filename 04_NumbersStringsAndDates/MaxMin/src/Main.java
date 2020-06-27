@@ -4,10 +4,10 @@ public class Main {
 
   public static void main(String[] args) {
     System.out.println("Максимум типа double = " + Double.MAX_VALUE);
-    System.out.println("Минимум типа double = " + Double.MIN_VALUE);
+    System.out.println("Минимум типа double = " + -Double.MAX_VALUE);
 
     System.out.println("Максимум типа float = " + Float.MAX_VALUE);
-    System.out.println("Минимум типа float = " + Float.MIN_VALUE);
+    System.out.println("Минимум типа float = " + -Float.MAX_VALUE);
 
     System.out.println("Максимум типа int = " + Integer.MAX_VALUE);
     System.out.println("Минимум типа int = " + Integer.MIN_VALUE);
