@@ -1,3 +1,5 @@
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Loader {
 
@@ -15,6 +17,14 @@ public class Loader {
         .trim();
 
     int symma = Integer.parseInt(str1) + Integer.parseInt(str2);
-    System.out.println(symma);
+    System.out.println("Сумма зарблат Васи и Маши = " + symma + " руб.");
+    //==================================================================================
+    int sumAll = 0;
+    Pattern pat = Pattern.compile("\\d+");
+    Matcher matcher = pat.matcher(text);
+    while (matcher.find()) {
+      sumAll += Integer.parseInt(matcher.group());
+    }
+    System.out.println("Сумма всех зарплат = " + sumAll + " руб.");
   }
 }
