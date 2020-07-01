@@ -1,18 +1,34 @@
+import java.util.Arrays;
+
 public class Main {
 
   public static void main(String[] args) {
-    String[][] chessBoard = new String[7][7];
-    for (int i = 0; i < chessBoard.length; i++) {
+    String[][] chessBoard = new String[9][9];
+    if (chessBoard.length % 2 == 1) {
+      for (int i = 0; i < chessBoard.length; i++) {
 
-      for (int j = 0; j < chessBoard[0].length; j++) {
-        if (i == j || (i + j) % 6 == 0) {
-          chessBoard[i][j] = "X";
-        } else {
-          chessBoard[i][j] = " ";
+        for (int j = 0; j < chessBoard[0].length; j++) {
+          if (i == j || j == (chessBoard.length - 1 - i)) {
+            chessBoard[i][j] = "X";
+          } else {
+            chessBoard[i][j] = " ";
+          }
         }
       }
+      show(chessBoard);
+    } else {
+      for (int i = 0; i < chessBoard.length; i++) {
+
+        for (int j = 0; j < chessBoard[0].length; j++) {
+          if (i == j || j == (chessBoard.length - i)) {
+            chessBoard[i][j] = "X";
+          } else {
+            chessBoard[i][j] = " ";
+          }
+        }
+      }
+      show(chessBoard);
     }
-    show(chessBoard);
   }
 
   private static void show(String[][] arr) {
