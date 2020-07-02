@@ -20,15 +20,8 @@ public class Main {
     Date dateOne = c.getTime();
     System.out.println("Date 1: " + dateOne);
 
-    if (currentDate.after(dateOne)) {
+    while (currentDate.after(dateOne) && myYear <= year) {
       for (int i = 0; i <= old; i++) {
-        c.set(myYear, month - 1, day);
-        myYear++;
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy '-' E", Locale.ENGLISH);
-        System.out.println(i + " - " + dateFormat.format(c.getTime()));
-      }
-    } else {
-      for (int i = 0; i <= (old - 1); i++) {
         c.set(myYear, month - 1, day);
         myYear++;
         SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy '-' E", Locale.ENGLISH);
@@ -37,3 +30,4 @@ public class Main {
     }
   }
 }
+

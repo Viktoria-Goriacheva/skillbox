@@ -3,32 +3,20 @@ import java.util.Arrays;
 public class Main {
 
   public static void main(String[] args) {
-    String[][] chessBoard = new String[9][9];
-    if (chessBoard.length % 2 == 1) {
-      for (int i = 0; i < chessBoard.length; i++) {
+    int m = 9;
+    int n = 9;
+    String[][] chessBoard = new String[m][n];
 
-        for (int j = 0; j < chessBoard[0].length; j++) {
-          if (i == j || j == (chessBoard.length - 1 - i)) {
-            chessBoard[i][j] = "X";
-          } else {
-            chessBoard[i][j] = " ";
-          }
-        }
-      }
-      show(chessBoard);
-    } else {
-      for (int i = 0; i < chessBoard.length; i++) {
+    for (int i = 0; i < m; i++) {
 
-        for (int j = 0; j < chessBoard[0].length; j++) {
-          if (i == j || j == (chessBoard.length - i)) {
-            chessBoard[i][j] = "X";
-          } else {
-            chessBoard[i][j] = " ";
-          }
-        }
-      }
-      show(chessBoard);
-    }
+      chessBoard[i][i] = "X";
+      chessBoard[i][m - i - 1] = "X";
+
+}
+
+
+    show(chessBoard);
+
   }
 
   private static void show(String[][] arr) {
