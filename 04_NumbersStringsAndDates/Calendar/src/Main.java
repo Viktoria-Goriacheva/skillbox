@@ -19,14 +19,15 @@ public class Main {
     c.set(Calendar.DATE, day);
     Date dateOne = c.getTime();
     System.out.println("Date 1: " + dateOne);
-
+    int i = -1;
     while (currentDate.after(dateOne) && myYear <= year) {
-      for (int i = 0; i <= old; i++) {
-        c.set(myYear, month - 1, day);
-        myYear++;
-        SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy '-' E", Locale.ENGLISH);
-        System.out.println(i + " - " + dateFormat.format(c.getTime()));
-      }
+
+      c.set(myYear, month - 1, day);
+      myYear++;
+      SimpleDateFormat dateFormat = new SimpleDateFormat("dd.MM.yyyy '-' E", Locale.ENGLISH);
+      i++;
+      System.out.println(i + " - " + dateFormat.format(c.getTime()));
+
     }
   }
 }
