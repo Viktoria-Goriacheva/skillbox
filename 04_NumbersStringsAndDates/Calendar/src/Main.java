@@ -1,4 +1,3 @@
-import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
 import java.util.Date;
@@ -14,11 +13,9 @@ public class Main {
     int old = year - myYear;
     Calendar c = Calendar.getInstance();
     Date currentDate = new Date();
-    System.out.println("Date 2: " + currentDate);
     c.set(Calendar.MONTH, month - 1);
     c.set(Calendar.DATE, day);
     Date dateOne = c.getTime();
-    System.out.println("Date 1: " + dateOne);
     int i = -1;
     while (currentDate.after(dateOne) && myYear <= year) {
 

@@ -1,18 +1,16 @@
-
 import java.util.Scanner;
 import java.util.ArrayList;
-
 
 public class Main {
 
   public static void main(String[] args) {
-    int deals;
-    String nameOfDeal;
-    int dealNumber;
-    String editName;
-    int deleteDeal;
+    String deals0;
+    int number;
+    String deals1;
+    String deals2;
+    String deals3;
     System.out.println(
-        "Выберите действие и введите одну из комманд: \\1 ADD \\2 EDIT \\3 DELETE \\4 LIST\\-1 EXIT");
+        "Выберите действие и введите одну из комманд:\n ADD \n EDIT\n DELETE\n LIST\n EXIT\n");
     ArrayList<String> toDoList = new ArrayList<>();
     toDoList.add("Поиграть в приставку");
     toDoList.add("Приготовить всем еды");
@@ -20,48 +18,65 @@ public class Main {
     toDoList.add("Сделать домашку скиллбокс");
     toDoList.add("Почитать книгу");
     System.out.println(toDoList);
+
     do {
 
       Scanner scanner = new Scanner(System.in);
-      deals = scanner.nextInt();
+      String line = scanner.nextLine();
+      deals0 = line.split(" ")[0];
+      deals3 = line.replaceFirst(deals0, "").trim();
 
-      if (deals == 1) {
-        System.out.println("Введите, какое дело вы хотите добавить ");
-        Scanner scanner1 = new Scanner(System.in);
-        nameOfDeal = scanner1.nextLine();
-        toDoList.add(nameOfDeal);
-        ArrayList<String> newToDoList = toDoList;
-        System.out.println(newToDoList);
+      if (deals0.equals("ADD")) {
 
-      } else if (deals == 2) {
-        System.out.println("Введите порядковый номер дела, которое вы хотите изменить");
-        Scanner scanner2 = new Scanner(System.in);
-        dealNumber = scanner2.nextInt();
-        toDoList.remove(dealNumber);
-        System.out.println("Введите, новое задание вместо старого");
-        Scanner scanner3 = new Scanner(System.in);
-        editName = scanner3.nextLine();
-        toDoList.add(dealNumber, editName);
-        ArrayList<String> newToDoList = toDoList;
-        System.out.println(newToDoList);
+        if (line.matches("^\\D+\\s+\\D(.+)")) {
+          toDoList.add(deals3);
+          ArrayList<String> newToDoList = toDoList;
+          System.out.println(newToDoList);
+        } else if (line.matches("^\\D+\\s+\\d+\\s+(.+)")) {
+          deals1 = line.split(" ")[1];
+          number = Integer.parseInt(deals1);
+          deals2 = line.replaceFirst(deals0, "").replaceFirst(deals1, "").trim();
+          toDoList.add(number, deals2);
+          ArrayList<String> newToDoList = toDoList;
+          System.out.println(newToDoList);
+        } else {
+          System.out.println("ошибка ввода,введите новое дело после команды.");
+        }
 
-      } else if (deals == 3) {
-        System.out.println("Введите порядковый номер дела, которое вы хотите удалить");
-        Scanner scanner4 = new Scanner(System.in);
-        deleteDeal = scanner4.nextInt();
-        toDoList.remove(deleteDeal);
-        ArrayList<String> newToDoList = toDoList;
-        System.out.println(newToDoList);
+      } else if (deals0.equals("EDIT")) {
+        if (line.matches("^\\D+\\s+\\d+\\s+(.+)")) {
+          deals1 = line.split(" ")[1];
+          number = Integer.parseInt(deals1);
+          toDoList.remove(number);
+          deals2 = line.replaceFirst(deals0, "").replaceFirst(deals1, "").trim();
+          toDoList.add(number, deals2);
+          ArrayList<String> newToDoList = toDoList;
+          System.out.println(newToDoList);
+        } else {
+          System.out.println("ошибка ввода,введите новое дело после команды.");
+        }
 
-      } else if (deals == 4) {
-        System.out.println(toDoList.size());
+      } else if (deals0.equals("DELETE")) {
+        if (line.matches("^\\D+\\s+\\d+")) {
+          deals1 = line.split(" ")[1];
+          number = Integer.parseInt(deals1);
+          toDoList.remove(number);
+          ArrayList<String> newToDoList = toDoList;
+          System.out.println(newToDoList);
+        } else {
+          System.out.println("ошибка ввода,введите новое дело после команды.");
+        }
+      } else if (deals0.equals("LIST")) {
         int n = 0;
-        for (int j = 0; j <= toDoList.size()-1; j++) {
+        for (int j = 0; j <= toDoList.size() - 1; j++) {
           n++;
           System.out.println(n + "---" + toDoList.get(j));
-
         }
+      } else if (deals0.equals("EXIT")) {
+        System.out.println("Редактирование списка завершено");
+      } else {
+        System.out.println("ошибка ввода команды.");
       }
-    } while (deals != -1);
+    } while (!deals0.equals("EXIT"));
   }
 }

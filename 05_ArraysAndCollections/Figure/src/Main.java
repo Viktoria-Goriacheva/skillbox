@@ -3,12 +3,11 @@ import java.util.Arrays;
 public class Main {
 
   public static void main(String[] args) {
-    int m = 11;
-    int n = 11;
+    int m = 9;
+    int n = 15;
     String[][] chessBoard = new String[m][n];
 
     for (int i = 0; i < m; i++) {
-
       chessBoard[i][i] = "X";
       chessBoard[i][m - i - 1] = "X";
 
@@ -20,19 +19,25 @@ public class Main {
     String rez = resu.replaceAll("null", " ").replaceAll("\\[", "").replaceAll(",", "");
     String[] words = rez.split("\\]");
     for (int i = 0; i < words.length; i++) {
-
       System.out.println(words[i]);
     }
-    // show(chessBoard);
 
   }
 
-  // private static void show(String[][] arr) {
-  // for (String[] anArr : arr) {
-  //   for (String anAnArr : anArr) {
-  //    System.out.print(anAnArr + " ");
-  //  }
-  //  System.out.println();
-  // }
-//  }
+
+
+
+    // show(chessBoard);
+
+
+ // private static void show(String[][] arr) {
+   // for (String[] anArr : arr) {
+     // for (String anAnArr : anArr) {
+       /*  if (anArr==null||anAnArr==null) {
+        anAnArr=" ";}*/
+      //  System.out.print(anAnArr + " ");
+    //  }
+    //  System.out.println();
+// }
+ // }
 }
