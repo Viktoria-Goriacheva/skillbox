@@ -23,8 +23,7 @@ public class Main {
         deals1 = adress.replaceFirst(deals0, "").trim();
         if (deals1.matches("^[(a-zA-Z-0-9-\\_\\+\\.)]+@[(a-z-A-z)]+\\.[(a-zA-z)]{2,3}$")) {
           email.add(deals1);
-          TreeSet<String> newEmail = email;
-          System.out.println(newEmail);
+
         } else {
           System.out.println("Неверно введен email");
         }
