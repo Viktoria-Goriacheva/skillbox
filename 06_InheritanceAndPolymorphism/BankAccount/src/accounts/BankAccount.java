@@ -3,28 +3,29 @@ package accounts;
 public class BankAccount {
 
   private String name;
-  protected double account;
-// допущение - вновь созданный клиент уже имеет какую-то сумму (account) на счету.
+  protected double sumMoney;
 
-  public BankAccount(String name, double account) {
 
-    this.account = account;
+  public BankAccount(String name) {
+
     this.name = name;
+
   }
 
   public void withdrawMoney(double amount) {  //снять деньги со счета
-    account = account - amount;
+    sumMoney = sumMoney - amount;
   }
 
   public void makeMoney(double amount) {   //положить деньги на счет
-    account = account + amount;
+    sumMoney = sumMoney + amount;
   }
 
   public double balance() {
-    return account;
+    return sumMoney;
   }
 
-  public boolean send(BankAccount from, BankAccount to, double amount) { //перевод с первого счета на второй на указанную сумму
+  public boolean send(BankAccount from, BankAccount to,
+      double amount) { //перевод с первого счета на второй на указанную сумму
     from.withdrawMoney(amount);
     to.makeMoney(amount);
     return true;
@@ -34,16 +35,8 @@ public class BankAccount {
     return name;
   }
 
-  public void setName(String name) {
-    this.name = name;
-  }
-
-  public double getAccount() {
-    return account;
-  }
-
-  public void setAccount(double account) {
-    this.account = account;
+  public double getSumMoney() {
+    return sumMoney;
   }
 
 }

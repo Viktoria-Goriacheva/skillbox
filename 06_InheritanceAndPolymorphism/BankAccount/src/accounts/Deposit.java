@@ -7,8 +7,8 @@ public class Deposit extends BankAccount {
   private Date dateLastApplication;
   private int timeDifference;
 
-  public Deposit(String name, double account) {
-    super(name, account);
+  public Deposit(String name) {
+    super(name);
     dateLastApplication = new Date();
   }
 
@@ -17,7 +17,7 @@ public class Deposit extends BankAccount {
     timeDifference =
         (int) (newTime.getTime() - dateLastApplication.getTime()) / (24 * 60 * 60 * 1000);
     if (timeDifference > 30) {
-      account = account - amount;
+      sumMoney = sumMoney - amount;
     } else {
       System.out.println("Месяц еще не прошел");
     }
@@ -34,7 +34,7 @@ public class Deposit extends BankAccount {
   }
 
   public void makeMoney(double amount) {   //положить деньги на счет
-    account = account + amount;
+    sumMoney = sumMoney + amount;
     dateLastApplication = new Date();
   }
 
