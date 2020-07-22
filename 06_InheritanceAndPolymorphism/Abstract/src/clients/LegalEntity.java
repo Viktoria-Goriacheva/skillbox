@@ -12,10 +12,6 @@ public class LegalEntity extends Client {
     System.out.println("Ваш баланс = " + super.balance());
   }
 
-  public void withdrawMoney(double amount) {  //снять деньги со счета
-    sumMoney = super.balance() - (amount * getWithdrawalComission(amount) / 100) - amount;
-  }
-
   @Override
   protected double getWithdrawalComission(double amount) {
     return 1;

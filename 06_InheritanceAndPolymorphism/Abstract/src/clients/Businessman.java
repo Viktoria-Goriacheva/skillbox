@@ -29,8 +29,4 @@ public class Businessman extends Client {
       return 0.5;
     }
   }
-
-  public void makeMoney(double amount) {  //положить деньги на счет
-    sumMoney = super.balance() - (amount * getDepositComission(amount) / 100) + amount;
-  }
 }

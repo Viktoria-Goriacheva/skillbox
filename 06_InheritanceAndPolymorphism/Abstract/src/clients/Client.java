@@ -13,11 +13,11 @@ public abstract class Client {
   }
 
   public void withdrawMoney(double amount) {  //снять деньги со счета
-    sumMoney = sumMoney - amount;
+    sumMoney = balance() - (amount * getWithdrawalComission(amount) / 100) - amount;
   }
 
   public void makeMoney(double amount) {   //положить деньги на счет
-    sumMoney = sumMoney + amount;
+    sumMoney = balance() - (amount * getDepositComission(amount) / 100) + amount;
   }
 
   public double balance() {
