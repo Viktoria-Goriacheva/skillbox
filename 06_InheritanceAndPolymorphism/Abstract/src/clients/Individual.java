@@ -11,4 +11,14 @@ public class Individual extends Client {
     System.out.println("Пополнение и снятие происходит без комиссии");
     System.out.println("Ваш баланс = " + super.balance());
   }
+
+  @Override
+  protected double getWithdrawalComission(double amount) {
+    return 0;
+  }
+
+  @Override
+  protected double getDepositComission(double amount) {
+    return 0;
+  }
 }

@@ -2,8 +2,6 @@ package clients;
 
 public class LegalEntity extends Client {
 
-  private final double COMISSION = 1;
-
   public LegalEntity(String name, double sumMoney) {
     super(name, sumMoney);
   }
@@ -15,6 +13,16 @@ public class LegalEntity extends Client {
   }
 
   public void withdrawMoney(double amount) {  //снять деньги со счета
-    sumMoney = super.balance() - (amount * COMISSION / 100) - amount;
+    sumMoney = super.balance() - (amount * getWithdrawalComission(amount) / 100) - amount;
+  }
+
+  @Override
+  protected double getWithdrawalComission(double amount) {
+    return 1;
+  }
+
+  @Override
+  protected double getDepositComission(double amount) {
+    return 0;
   }
 }

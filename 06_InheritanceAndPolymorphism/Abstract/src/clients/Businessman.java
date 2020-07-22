@@ -2,8 +2,6 @@ package clients;
 
 public class Businessman extends Client {
 
-  private final double COMISSION_MIN_LIMIT = 1;
-  private final double COMISSION_MAX_LIMIT = 0.5;
   private final double LIMIT = 1000;
 
   public Businessman(String name, double sumMoney) {
@@ -18,11 +16,21 @@ public class Businessman extends Client {
     System.out.println("Ваш баланс = " + super.balance());
   }
 
-  public void makeMoney(double amount) {  //положить деньги на счет
+  @Override
+  protected double getWithdrawalComission(double amount) {
+    return 0;
+  }
+
+  @Override
+  protected double getDepositComission(double amount) {
     if (amount < LIMIT) {
-      sumMoney = super.balance() - (amount * COMISSION_MIN_LIMIT / 100) + amount;
+      return 1;
     } else {
-      sumMoney = super.balance() - (amount * COMISSION_MAX_LIMIT / 100) + amount;
+      return 0.5;
     }
+  }
+
+  public void makeMoney(double amount) {  //положить деньги на счет
+    sumMoney = super.balance() - (amount * getDepositComission(amount) / 100) + amount;
   }
 }

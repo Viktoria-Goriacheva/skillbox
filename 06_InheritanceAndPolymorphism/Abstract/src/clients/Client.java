@@ -33,4 +33,8 @@ public abstract class Client {
   }
 
   public abstract void concludedInfo();
+
+  protected abstract double getWithdrawalComission(double amount);//снятие
+
+  protected abstract double getDepositComission(double amount);//пополнение
 }
