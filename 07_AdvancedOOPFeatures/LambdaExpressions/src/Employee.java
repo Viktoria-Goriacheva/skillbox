@@ -1,46 +1,53 @@
 import java.text.SimpleDateFormat;
+import java.util.Calendar;
 import java.util.Date;
 
-public class Employee
-{
-    private String name;
-    private Integer salary;
-    private Date workStart;
+public class Employee {
 
-    public Employee(String name, Integer salary, Date workStart)
-    {
-        this.name = name;
-        this.salary = salary;
-        this.workStart = workStart;
-    }
+  private String name;
+  private Integer salary;
+  private Date workStart;
 
-    public String getName() {
-        return name;
-    }
 
-    public void setName(String name) {
-        this.name = name;
-    }
+  public Employee(String name, Integer salary, Date workStart) {
+    this.name = name;
+    this.salary = salary;
+    this.workStart = workStart;
+  }
 
-    public Integer getSalary() {
-        return salary;
-    }
+  public String getName() {
+    return name;
+  }
 
-    public void setSalary(int salary) {
-        this.salary = salary;
-    }
+  public void setName(String name) {
+    this.name = name;
+  }
 
-    public Date getWorkStart() {
-        return workStart;
-    }
+  public Integer getSalary() {
+    return salary;
+  }
 
-    public void setWorkStart(Date workStart) {
-        this.workStart = workStart;
-    }
+  public void setSalary(int salary) {
+    this.salary = salary;
+  }
 
-    public String toString()
-    {
-        return name + " - " + salary + " - " +
-            (new SimpleDateFormat("dd.MM.yyyy")).format(workStart);
-    }
+  public Date getWorkStart() {
+    return workStart;
+  }
+
+  public int getYear(Date date) {
+    Calendar calendar = Calendar.getInstance();
+    calendar.setTime(date);
+    int year = calendar.get(Calendar.YEAR);
+    return year;
+  }
+
+  public void setWorkStart(Date workStart) {
+    this.workStart = workStart;
+  }
+
+  public String toString() {
+    return name + " - " + salary + " - " +
+        (new SimpleDateFormat("dd.MM.yyyy")).format(workStart);
+  }
 }

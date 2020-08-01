@@ -1,9 +1,11 @@
+import com.skillbox.airport.Airport;
+import com.skillbox.airport.Flight;
+import com.skillbox.airport.Flight.Type;
+import com.skillbox.airport.Terminal;
 import java.nio.file.Files;
 import java.nio.file.Paths;
-import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
-import java.util.stream.Stream;
 
 public class Main {
 
@@ -14,15 +16,30 @@ public class Main {
     ArrayList<Employee> staff = loadStaffFromFile();
     Collections.sort(staff, (o1, o2) -> {
       int temp = o1.getSalary() - o2.getSalary();
-        if (temp == 0) {
-            return (o1.getName().compareTo(o2.getName()));
-        } else {
-            return temp;
-        }
+      if (temp == 0) {
+        return (o1.getName().compareTo(o2.getName()));
+      } else {
+        return temp;
+      }
     });
-    for (Employee employee : staff) {
-      System.out.println(employee);
-    }
+    staff.stream()
+        .filter(employee -> employee.getYear(employee.getWorkStart()) == 2017)
+        .max(Comparator.comparing(Employee::getSalary))
+        .ifPresent(System.out::println);
+
+    Airport airport = Airport.getInstance();
+
+    List<Terminal> terminals = airport.getTerminals();
+    List<Flight> flights = new ArrayList<>();
+    terminals.stream().map(Terminal::getFlights).forEach(flights::addAll);
+    Date date1 = new Date();
+    flights.stream()
+        .sorted(Comparator.comparing(Flight::getDate))
+        .filter(x -> x.getType().equals(Type.DEPARTURE))
+        .filter(t -> t.getDate().getTime() >= date1.getTime())
+        .filter(t -> ((t.getDate().getTime()) - date1.getTime()) <= 7200000)
+        .forEach(System.out::println);
+
   }
 
   private static ArrayList<Employee> loadStaffFromFile() {
