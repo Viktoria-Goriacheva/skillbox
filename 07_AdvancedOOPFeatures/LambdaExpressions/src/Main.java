@@ -11,6 +11,7 @@ public class Main {
 
   private static String staffFile = "data/staff.txt";
   private static String dateFormat = "dd.MM.yyyy";
+  private static final int TWO_HOURS_IN_MILLIS = 7200000;
 
   public static void main(String[] args) {
     ArrayList<Employee> staff = loadStaffFromFile();
@@ -32,12 +33,12 @@ public class Main {
     List<Terminal> terminals = airport.getTerminals();
     List<Flight> flights = new ArrayList<>();
     terminals.stream().map(Terminal::getFlights).forEach(flights::addAll);
-    Date date1 = new Date();
+    Date dateNow = new Date();
     flights.stream()
         .sorted(Comparator.comparing(Flight::getDate))
         .filter(x -> x.getType().equals(Type.DEPARTURE))
-        .filter(t -> t.getDate().getTime() >= date1.getTime())
-        .filter(t -> ((t.getDate().getTime()) - date1.getTime()) <= 7200000)
+        .filter(t -> t.getDate().getTime() >= dateNow.getTime())
+        .filter(t -> ((t.getDate().getTime()) - dateNow.getTime()) <= TWO_HOURS_IN_MILLIS)
         .forEach(System.out::println);
 
   }
