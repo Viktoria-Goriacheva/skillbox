@@ -6,6 +6,7 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.text.SimpleDateFormat;
 import java.util.*;
+import java.util.stream.Collectors;
 
 public class Main {
 
@@ -29,18 +30,15 @@ public class Main {
         .ifPresent(System.out::println);
 
     Airport airport = Airport.getInstance();
-
-    List<Terminal> terminals = airport.getTerminals();
-    List<Flight> flights = new ArrayList<>();
-    terminals.stream().map(Terminal::getFlights).forEach(flights::addAll);
     Date dateNow = new Date();
-    flights.stream()
+    airport.getTerminals().stream()
+        .flatMap(terminal -> terminal.getFlights().stream()).collect(Collectors.toList())
+        .stream()
         .sorted(Comparator.comparing(Flight::getDate))
         .filter(x -> x.getType().equals(Type.DEPARTURE))
         .filter(t -> t.getDate().getTime() >= dateNow.getTime())
         .filter(t -> ((t.getDate().getTime()) - dateNow.getTime()) <= TWO_HOURS_IN_MILLIS)
         .forEach(System.out::println);
-
   }
 
   private static ArrayList<Employee> loadStaffFromFile() {
