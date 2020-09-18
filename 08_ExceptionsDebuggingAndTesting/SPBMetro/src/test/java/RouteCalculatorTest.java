@@ -119,14 +119,21 @@ public class RouteCalculatorTest extends TestCase {
   }
 
   public void testGetRouteWithOneConnection() {
-    List<Station> actual = routeCalculator
-        .getShortestRoute(stationIndex.getStation("k2"), stationIndex.getStation("i"));
+    List<Station> actual = routeCalculator.getShortestRoute(stationIndex.getStation("k2"), stationIndex.getStation("i"));
     List<Station> expected = routeWithOneConnections;
     String actualLine = actual.toString();
     String expectedLine = expected.toString();
     assertEquals(actualLine, expectedLine);
   }
+  public void testGetRouteWithTwoConnections() {
 
+    List<Station> actual = routeCalculator
+        .getShortestRoute(stationIndex.getStation("n"), stationIndex.getStation("k3"));
+    List<Station> expected = routeWithTwoConnections;
+    String actualLine = actual.toString();
+    String expectedLine = expected.toString();
+    assertEquals(actualLine, expectedLine);
+  }
   @Override
   protected void tearDown() {
 

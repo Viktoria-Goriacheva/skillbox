@@ -25,12 +25,7 @@ public class RouteCalculator
         }
 
         route = getRouteWithOneConnection(from, to);
-        if(route != null) {
             return route;
-        }
-
-        route = getRouteWithTwoConnections(from, to);
-        return route;
     }
 
     public static double calculateDuration(List<Station> route)
@@ -88,12 +83,6 @@ public class RouteCalculator
 
     private List<Station> getRouteWithOneConnection(Station from, Station to)
     {
-        if(from.getLine().getNumber() == 3 && to.getLine().getNumber() == 5) {
-            return null;
-        }
-        if(from.getLine().getNumber() == 5 && to.getLine().getNumber() == 3) {
-            return null;
-        }
         List<Station> route = getRouteWithTwoConnections(from,to);
         List<Station> fromLineStations = from.getLine().getStations();
         List<Station> toLineStations = to.getLine().getStations();
