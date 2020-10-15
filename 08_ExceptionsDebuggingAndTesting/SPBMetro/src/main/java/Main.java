@@ -37,8 +37,9 @@ public class Main {
 
         System.out.println("Длительность: " +
             RouteCalculator.calculateDuration(route) + " минут");
+        throw new Exception("что-то сломалось");
       } catch (Exception e) {
-        logger.error(e);
+        logger.error(e.getMessage());
       }
     }
   }
@@ -69,12 +70,14 @@ public class Main {
       System.out.println(message);
       String line = scanner.nextLine().trim();
       Station station = stationIndex.getStation(line);
+
       if (station != null) {
         logger.debug("Станция : " + station);
         return station;
       }
       System.out.println("Станция не найдена :(");
       logger.info("Станция не найдена : " + line);
+
     }
   }
 
