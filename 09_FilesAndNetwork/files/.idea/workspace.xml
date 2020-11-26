@@ -24,7 +24,16 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7ba7359a-edaa-4adb-b314-9e8657b28dd4" name="Default Changelist" comment="" />
+    <list default="true" id="7ba7359a-edaa-4adb-b314-9e8657b28dd4" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/../CopyFiles/.idea/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CopyFiles/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CopyFiles/.idea/jarRepositories.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CopyFiles/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CopyFiles/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CopyFiles/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CopyFiles/CopyFiles.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/../CopyFiles/src/main/java/com/csharpcoderr/file/Main.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -71,6 +80,7 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
     <state x="407" y="181" key="new project wizard" timestamp="1604139661493">
